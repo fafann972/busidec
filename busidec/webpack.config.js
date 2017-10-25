@@ -41,7 +41,22 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': 'true'
+    }
+    // proxy: {
+    //   '*': {
+    //     target: 'http://my-project.local',
+    //     changeOrigin: true,
+    //     secure: false,
+    //     cookieDomainRewrite: '',
+    //     onProxyReq: function (request, req, res) {
+    //       request.setHeader('origin', 'http://my-project.local')
+    //     }
+    //   },
+    //}
   },
   performance: {
     hints: false

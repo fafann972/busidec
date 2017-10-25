@@ -1,0 +1,50 @@
+POST /_xpack/security/user/busidec
+{
+  "password" : "busidecpwd", 
+  "roles" : [ "admin" ], 
+  "full_name" : "Stephane Jarel", 
+  "email" : "fafann972@gmail.com", 
+  "metadata" : { 
+    "intelligence" : 7
+  },
+  "enabled": true 
+}
+
+
+PUT busidec
+{
+  "settings": {
+    "number_of_shards": 2,
+    "number_of_replicas": 2
+  }
+}
+
+PUT busidec/_mapping/user
+{
+  "properties": {
+    "first_name": {
+      "type": "text"
+    },
+    "last_name": {
+      "type": "text"
+    },
+    "user_name": {
+      "type": "text"
+    },
+    "email": {
+      "type": "text"
+    },
+    "password": {
+      "type": "text"
+    }
+  }
+} 
+
+POST busidec/user/
+{
+  "first_name": "Mike",
+  "last_name": "Durant",
+  "email": "miked@busidec.com",
+  "password": "test"
+  "role": "CONSULTANT"
+}
