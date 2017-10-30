@@ -1,4 +1,8 @@
-FROM node:busidec
+FROM busidec-front
+
+MAINTAINER Jarel Stéphane
+
+LABEL a=ý
 
 RUN npm --user root --unsafe-perm true npm -g
 
@@ -14,8 +18,10 @@ WORKDIR /opt/app
 # And finally add all our files from our host machine
 ADD . /opt/app/
 
+RUN npm run build
+
 # I'm also going to expose a port here, we'll use this later
 EXPOSE 8080
 
 # Finally, we'll run a command whenever we start this in a container
-CMD ["npm", "run", "dev"]  
+CMD ["npm", "start"]  
