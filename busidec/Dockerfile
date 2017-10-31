@@ -1,10 +1,10 @@
-FROM busidec-front
+FROM node:alpine
 
 MAINTAINER Jarel Stéphane
 
-LABEL a=ý
+LABEL authoe="Stéphane Jarel"
 
-RUN npm --user root --unsafe-perm true npm -g
+#RUN npm --user root --unsafe-perm true npm -g
 
 ADD package.json /tmp/package.json
 
@@ -21,7 +21,7 @@ ADD . /opt/app/
 RUN npm run build
 
 # I'm also going to expose a port here, we'll use this later
-EXPOSE 8080
+EXPOSE 3003
 
 # Finally, we'll run a command whenever we start this in a container
 CMD ["npm", "start"]  
